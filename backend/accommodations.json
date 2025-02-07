@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "nome": "Apartamento Beira-Mar",
+        "imagem": "https: //picsum.photos/300/200",
+        "precoNoite": 350,
+        "localizacao": "Florianópolis, SC"
+    },
+    {
+        "id": 2,
+        "nome": "Chalé na Serra",
+        "imagem": "https: //picsum.photos/300/200",
+        "precoNoite": 500,
+        "localizacao": "Campos do Jordão, SP"
+    },
+    {
+        "id": 3,
+        "nome": "Pousada Pé na Areia",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 420,
+        "localizacao": "Porto de Galinhas, PE"
+    },
+    {
+        "id": 4,
+        "nome": "Cabana no Lago",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 380,
+        "localizacao": "Gramado, RS"
+    },
+    {
+        "id": 5,
+        "nome": "Suíte Luxo Copacabana",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 750,
+        "localizacao": "Rio de Janeiro, RJ"
+    },
+    {
+        "id": 6,
+        "nome": "Flat Moderno no Centro",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 320,
+        "localizacao": "São Paulo, SP"
+    },
+    {
+        "id": 7,
+        "nome": "Bangâlo Vista para o Mar",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 680,
+        "localizacao": "Ilhabela, SP"
+    },
+    {
+        "id": 8,
+        "nome": "Loft Industrial Aconchegante",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 290,
+        "localizacao": "Belo Horizonte, MG"
+    },
+    {
+        "id": 9,
+        "nome": "Casa de Praia Exclusiva",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 950,
+        "localizacao": "Trancoso, BA"
+    },
+    {
+        "id": 10,
+        "nome": "Hostel Econômico no Centro",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 120,
+        "localizacao": "Curitiba, PR"
+    }
+]
