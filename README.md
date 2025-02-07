@@ -2,6 +2,20 @@
 
 Este projeto é uma aplicação full-stack para busca de acomodações, utilizando **React** no frontend e **Flask** no backend.
 
+## 📌 Estrutura do Repositório
+
+Este repositório contém tanto o frontend quanto o backend em diretórios separados:
+
+```
+accommodation-finder/
+│── backend/   # Código do backend em Flask
+│── frontend/  # Código do frontend em React
+```
+
+Isso facilita o gerenciamento e a organização do projeto em um único repositório.
+
+> **Nota:** Embora manter frontend e backend no mesmo repositório facilite a configuração e o versionamento para pequenos projetos, em aplicações maiores pode ser mais vantajoso separá-los em repositórios distintos. Isso melhora a escalabilidade, permite deploys independentes e facilita a colaboração em equipes separadas.
+
 ## 📌 Tecnologias Utilizadas
 
 ### Frontend

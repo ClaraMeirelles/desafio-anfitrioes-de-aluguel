@@ -1,10 +1,8 @@
-# Crie uma API REST que disponibilize dados fictícios de acomodações. A API deve ter os seguintes
-# endpoints:
-
-
 from flask import Flask, jsonify, request
 from flask_cors import CORS  
 import json
+
+
 app = Flask(__name__)
 CORS(app) 
 
@@ -32,7 +30,6 @@ def accommodation_list():
 
 
 # ● GET /acomodacoes/{id} → Retorna detalhes de uma acomodação específica
-
 @app.route('/acomodacoes/<int:id>', methods=['GET'])
 def acomodacao_detalhe(id):
     accommodations = get_accommodation()
