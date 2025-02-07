@@ -1,14 +1,18 @@
 import React from 'react'
+import { StyledCard, StyledImg, StyledInfo, StyledTitle } from './styled'
 
-export default function Card() {
+export default function Card({ property }) {
     return (
-        <div>
-            <header>
-                <img src="https://picsum.photos/300/200" alt="imagem imóvel" />
-                <h2>título do imóvel</h2>
-                <p>descrição imóvel</p>
+        <StyledCard>
+            <StyledImg src={`${property.imagem}?random=${property.id}`} alt={`imagem de ${property.nome}`} />
+            <StyledInfo>
+                <StyledTitle>
+                    <h4>{property.nome}</h4>
+                    <h4>R$ {property.precoNoite}</h4>
+                </StyledTitle>
+                <p>{property.localizacao}</p>
                 <p>3 quartos | 2 banheiros | garagem</p>
-            </header>
-        </div>
+            </StyledInfo>
+        </StyledCard>
     )
 }

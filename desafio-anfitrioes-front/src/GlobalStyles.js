@@ -9,6 +9,7 @@ body{
     display: flex;
     align-items: center;
     justify-items: center;
+    box-sizing: border-box;
 }
 
 a{
