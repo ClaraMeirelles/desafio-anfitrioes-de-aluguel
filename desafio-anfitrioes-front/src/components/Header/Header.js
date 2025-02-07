@@ -1,9 +1,10 @@
 import React from 'react'
-
+import Logo from '../../images/logomarca_anfitrioesdealuguel.png'
+import { HeaderMain, StyledImg } from './styled'
 export default function Header() {
     return (
-        <div>
-            <h1>Anfitriões de aluguel</h1>
-        </div>
+        <HeaderMain>
+            <StyledImg src={Logo} alt="logomarca anfitriões de aluguel" />
+        </HeaderMain>
     )
 }
