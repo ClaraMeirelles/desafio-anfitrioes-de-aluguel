@@ -7,14 +7,29 @@ export const StyledCard = styled.article`
     min-width: fit-content;
     margin: 16px;
     justify-content: space-evenly;
+    text-align: justify;
     border-radius: 24px;
-    box-shadow: 0 5px 8px 0 #001736 ;
-`
+    box-shadow: 0 5px 8px 0 #001736;
+    cursor: pointer;
+    :hover{
+       h4{ 
+        color:#ff464f;
+        }
+    }
+    p>strong{
+        text-align: center;
+        color: #ff464f;
+        :hover{
+        text-decoration: underline;
+        cursor: pointer;
+        }
+    }
+    `
 
 export const StyledImg = styled.img`
     width: 100%;
     border-radius: 24px 24px 0 0;
-`
+    `
 
 export const StyledTitle = styled.header`
     width: 100%;
