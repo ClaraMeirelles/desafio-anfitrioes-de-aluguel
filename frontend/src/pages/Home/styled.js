@@ -1,6 +1,19 @@
 import styled from "styled-components";
 
-export const StyledDisplay = styled.main`
+
+export const HomeContainer = styled.main`
+    padding: 16px;
+`
+
+export const HomeMenu = styled.section`
+    display: flex;
+    justify-content: space-evenly;
+    @media  screen and (max-width: 700px) {
+        flex-direction: column;
+        padding-bottom: 32px;
+     }
+`
+export const StyledDisplay = styled.section`
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

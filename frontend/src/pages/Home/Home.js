@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyledDisplay } from './styled';
+import { HomeContainer, HomeMenu, StyledDisplay } from './styled';
 import { Card } from '../../components/Card/Card';
 // import axios from "axios";
 
@@ -44,24 +44,26 @@ export default function Home({ changePage }) {
     }
     console.log(cities)
     return (
-        <div>
-            <h1>Acomodações</h1>
-            <section>
-                <p>Filtrar Acomodações:</p>
-                <select name="city" onChange={receivecity}>
-                    <option value={""}>Selecione a cidade</option>
-                    {cities
-                        .sort()
-                        .map((city) => {
-                            return <option key={city} value={city}>{city}</option>
-                        })
-                    }
-                </select>
-            </section>
+        <HomeContainer>
+            <HomeMenu>
+                <h1>Acomodações</h1>
+                <section>
+                    <p>Filtrar Acomodações:</p>
+                    <select name="city" onChange={receivecity}>
+                        <option value={""}>Selecione a cidade</option>
+                        {cities
+                            .sort()
+                            .map((city) => {
+                                return <option key={city} value={city}>{city}</option>
+                            })
+                        }
+                    </select>
+                </section>
+            </HomeMenu>
             <StyledDisplay>
 
-                {properties.map((property) => <Card key={property.id} property={property} />)}
+                {properties.map((property) => <Card key={property.id} property={property} changePage={changePage} />)}
             </StyledDisplay>
-        </div >
+        </HomeContainer >
     )
 }
