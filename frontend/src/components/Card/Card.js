@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledCard, StyledImg, StyledInfo, StyledTitle } from './styled'
 
-export default function Card({ property }) {
+export function Card({ property }) {
     return (
         <StyledCard>
             <StyledImg src={`${property.imagem}?random=${property.id}`} alt={`imagem de ${property.nome}`} />
