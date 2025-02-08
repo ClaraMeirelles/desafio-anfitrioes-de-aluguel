@@ -7,7 +7,7 @@ export const StyledCard = styled.article`
     min-width: fit-content;
     margin: 16px;
     justify-content: space-evenly;
-    text-align: justify;
+    /* text-align: center; */
     border-radius: 24px;
     box-shadow: 0 5px 8px 0 #001736;
     cursor: pointer;
@@ -17,7 +17,7 @@ export const StyledCard = styled.article`
         }
     }
     p>strong{
-        text-align: center;
+        margin:0 auto;
         color: #ff464f;
         :hover{
         text-decoration: underline;
@@ -39,4 +39,10 @@ export const StyledTitle = styled.header`
 
 export const StyledInfo = styled.section`
     padding: 0 16px;
+    :last-child{
+        justify-self:center;
+    }
+    :last-child:hover{
+            text-decoration: underline;
+    }
 `
