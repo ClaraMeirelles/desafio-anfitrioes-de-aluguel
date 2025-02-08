@@ -22,12 +22,12 @@ export default function Detalhes({ id }) {
     useEffect(() => {
         let filteredFavoriteAccomodation = favoriteAccomodation
         if (like && !favoriteAccomodation.includes(id)) {
-            favoriteAccomodation.push(property.id)
+            filteredFavoriteAccomodation.push(property.id)
         } else if (!like && favoriteAccomodation.includes(property.id)) {
             filteredFavoriteAccomodation = favoriteAccomodation.filter((accomodationId) => accomodationId !== id)
         }
         console.log(favoriteAccomodation)
-        window.localStorage.setItem("favoriteAccomodation", JSON.stringify(favoriteAccomodation))
+        window.localStorage.setItem("favoriteAccomodation", JSON.stringify(filteredFavoriteAccomodation))
     }, [like])
 
 

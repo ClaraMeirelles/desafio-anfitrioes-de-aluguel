@@ -34,7 +34,9 @@ export function Card({ property, changePage }) {
                     <p>Ver mais detalhes</p>
                 </StyledInfo>
             </article>
-            <p onClick={() => setLike(!like)}><strong>{like ? "Remover dos favoritos" : "Favoritar"}</strong></p>
+            <StyledInfo>
+                <p onClick={() => setLike(!like)}><strong>{like ? "Remover dos favoritos" : "Favoritar"}</strong></p>
+            </StyledInfo>
         </StyledCard>
     )
 }
