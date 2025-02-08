@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router": "^6.29.0",
     "react-scripts": "0.9.5",
     "styled-components": "^6.1.15"
   },

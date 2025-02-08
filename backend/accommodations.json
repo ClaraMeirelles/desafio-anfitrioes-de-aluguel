@@ -2,14 +2,14 @@
     {
         "id": 1,
         "nome": "Apartamento Beira-Mar",
-        "imagem": "https: //picsum.photos/300/200",
+        "imagem": "https://picsum.photos/300/200",
         "precoNoite": 350,
         "localizacao": "Florianópolis, SC"
     },
     {
         "id": 2,
         "nome": "Chalé na Serra",
-        "imagem": "https: //picsum.photos/300/200",
+        "imagem": "https://picsum.photos/300/200",
         "precoNoite": 500,
         "localizacao": "Campos do Jordão, SP"
     },
@@ -68,5 +68,12 @@
         "imagem": "https://picsum.photos/300/200",
         "precoNoite": 120,
         "localizacao": "Curitiba, PR"
+    },
+    {
+        "id": 11,
+        "nome": "Casa no Matadeiro",
+        "imagem": "https://picsum.photos/300/200",
+        "precoNoite": 350,
+        "localizacao": "Florianópolis, SC"
     }
 ]
