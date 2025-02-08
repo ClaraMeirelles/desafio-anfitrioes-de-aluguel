@@ -3,7 +3,7 @@ import { StyledDisplay } from './styled';
 import { Card } from '../../components/Card/Card';
 // import axios from "axios";
 
-export default function Home() {
+export default function Home({ changePage }) {
     const [properties, setProperties] = useState([])
     const [cities, setCities] = useState([])
 

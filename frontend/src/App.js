@@ -1,32 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header/Header';
 import { GlobalStyle } from './GlobalStyles';
 import Home from './pages/Home/Home';
-import Details from './pages/Detalhes.js/Details';
-import { createBrowserRouter, RouterProvider } from 'react-router';
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <Home />
-    ),
-  },
-  {
-    path: "/about",
-    element: (
-      <Details />
-    ),
-  },
-]);
+
 
 export default function App() {
-
+  const [page, setPage] = useState('home')
+  const changePage = (selectedPage) => {
+    setPage(selectedPage)
+  }
   return (
     <div>
       <GlobalStyle />
       <main>
         <Header />
-        <RouterProvider router={router} />
+        <Home changePage={changePage} />
       </main>
     </div>
   );
