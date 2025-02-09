@@ -6,10 +6,6 @@ export default function Home({ changePage }) {
     const [properties, setProperties] = useState([])
     const [cities, setCities] = useState([])
 
-    useEffect(() => {
-        fetchData()
-    }, []);
-
     const fetchData = () => {
         fetch("http://localhost:5000/acomodacoes")
             .then((res) => res.json())
@@ -43,6 +39,10 @@ export default function Home({ changePage }) {
         e.preventDefault();
         filterAcomodationsByCity(e.target.value)
     }
+
+    useEffect(() => {
+        fetchData()
+    }, []);
 
     return (
         <HomeContainer>

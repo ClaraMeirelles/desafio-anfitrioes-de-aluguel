@@ -1,26 +1,34 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-body{
+*{
+    box-sizing: border-box;
+    font-family: "Inter", 'Arial Narrow', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: "Inter", 'Arial Narrow', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    box-sizing: border-box;
-    max-width: 100vw;
-    overflow-x: hidden;
+}
+body{
+    min-height: 100vh;
 }
 
-a{
+button{
+    text-align: center;
+    background: none;
+    border: none;
     color: #ff464f;
-    margin: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
     font-weight: bold;
     &:hover {
         text-decoration: underline;
-        cursor: pointer;
-    }   
+        color: #8f1d22;
+        transition: color 0.2s ease-in-out;
+    }
+    &:focus-visible {
+      outline: 2px solid #ff464f;
+      border-radius: 4px;
+    }
 }
 `
 

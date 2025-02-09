@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const HomeContainer = styled.main`
     padding: 16px;
 `
@@ -11,7 +10,7 @@ export const HomeControls = styled.section`
     @media  screen and (max-width: 700px) {
         flex-direction: column;
         padding-bottom: 32px;
-     }
+    }
 `
 export const HomeLayout = styled.section`
     display: flex;

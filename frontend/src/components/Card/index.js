@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import { HighlightedText, StyledCard, StyledImg, StyledInfo, StyledTitle } from './styled'
+import { StyledCard, StyledImg, StyledInfo, StyledTitle } from './styled'
 
 export function Card({ property, changePage }) {
     const [like, setLike] = useState(false)
-    const favoriteAccomodation = JSON.parse(window.localStorage.getItem("favoriteAccomodation")) || []
-    useEffect(() => {
-        favoriteAccomodation.map((accomodationId) => accomodationId === property.id && setLike(true))
-    }, [property])
+    const [favoriteAccomodation, setFavoriteAccomodation] =
+        useState(JSON.parse(localStorage.getItem("favoriteAccomodation")) || [])
 
     useEffect(() => {
-        let updatedFavorites = [...favoriteAccomodation]
-        if (like && !favoriteAccomodation.includes(property.id)) {
-            updatedFavorites.push(property.id)
-        } else if (!like && favoriteAccomodation.includes(property.id)) {
-            updatedFavorites = favoriteAccomodation.filter((accomodationId) => accomodationId !== property.id)
-        }
-        window.localStorage.setItem("favoriteAccomodation", JSON.stringify(updatedFavorites))
-    }, [like, property])
+        setLike(favoriteAccomodation.includes(property.id))
+    }, [property, favoriteAccomodation])
 
+    const toggleFavorite = () => {
+        const updatedFavorites = like
+            ? favoriteAccomodation.filter(accomodationId => accomodationId !== property.id)
+            : [...favoriteAccomodation, property.id]
+        setFavoriteAccomodation(updatedFavorites)
+        localStorage.setItem("favoriteAccomodation", JSON.stringify(updatedFavorites))
+        setLike(!like);
+    };
 
     return (
         <StyledCard>
-            <article onClick={() => changePage('detalhes', property.id)}>
+            <section onClick={() => changePage('detalhes', property.id)}>
                 <StyledImg src={`${property.imagem}?random=${property.id}`} alt={`imagem de ${property.nome}`} />
                 <StyledInfo>
                     <StyledTitle>
@@ -32,9 +32,9 @@ export function Card({ property, changePage }) {
                     <p>3 quartos | 2 banheiros | garagem</p>
                     <p>Ver mais detalhes</p>
                 </StyledInfo>
-            </article>
+            </section>
             <StyledInfo>
-                <HighlightedText onClick={() => setLike(!like)}>{like ? "Remover dos favoritos" : "Favoritar"}</HighlightedText>
+                <button onClick={toggleFavorite}>{like ? "Remover dos favoritos" : "Favoritar"}</button>
             </StyledInfo>
         </StyledCard>
     )

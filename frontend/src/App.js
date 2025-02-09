@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import { GlobalStyle } from './assets/styles/GlobalStyles';
 import Home from './pages/Home';
@@ -13,13 +13,11 @@ export default function App() {
     setId(selectedId)
   }
   return (
-    <Fragment>
+    <main>
       <GlobalStyle />
-      <main>
-        <Header changePage={changePage} page={page} />
-        {page === "home" ? <Home changePage={changePage} /> : <Detalhes id={id} />}
-      </main>
-    </Fragment>
+      <Header changePage={changePage} page={page} />
+      {page === "home" ? <Home changePage={changePage} /> : <Detalhes id={id} />}
+    </main>
   );
 }
 

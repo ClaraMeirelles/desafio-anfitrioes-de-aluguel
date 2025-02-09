@@ -21,12 +21,14 @@ export const Description = styled.section`
     :last-child{
         grid-column:span 2;
     }
-`
-export const HighlightedText = styled.a`
-    color: #ff464f;
-
-    &:hover {
-        text-decoration: underline;
-        cursor: pointer;
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    @media (max-width: 700px) {
+        grid-template-columns: 3fr 2fr;
+        text-align: center;
     }
 `

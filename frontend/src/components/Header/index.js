@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackButton, HeaderContainer, LogoImage } from './styled'
+import { HeaderContainer, LogoImage } from './styled'
 export default function Header({ changePage, page }) {
     return (
         <HeaderContainer
@@ -8,11 +8,11 @@ export default function Header({ changePage, page }) {
                 src={'/images/logomarca_anfitrioesdealuguel.png'}
                 alt="logomarca anfitriões de aluguel" />
             {page === "detalhes" && (
-                <BackButton
+                <button
                     onClick={() => changePage("home")}
                     aria-label="Voltar para Home">
                     Voltar
-                </BackButton>
+                </button>
             )}
         </HeaderContainer >
     )

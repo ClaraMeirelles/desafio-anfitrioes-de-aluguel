@@ -7,35 +7,32 @@ app = Flask(__name__)
 CORS(app) 
 
 def get_accommodation():
-    with open("accommodations.json", "r", encoding="utf-8") as file:
+    with open("accommodation.json", "r", encoding="utf-8") as file:
         return json.load(file)
     
-# ● GET /acomodacoes → Retorna uma lista de acomodações
-# ● GET /acomodacoes?cidade=Florianópolis → Filtra acomodações por cidade
 @app.route('/acomodacoes', methods=['GET'])
-def accommodation_list():
-    accommodations = get_accommodation()
-    cidade = request.args.get('cidade')  # Captura o parâmetro opcional da query string
-    print(cidade)
+def get_accommodation_list():
+    accommodation_list = get_accommodation()
+    city = request.args.get('cidade')
 
-    if not cidade:
-        return jsonify(accommodations)
+    if not city:
+        return jsonify(accommodation_list)
     else:
-        cidade = cidade.lower()
-        filtered_accommodations = [
-            acc for acc in accommodations if cidade in acc["localizacao"].lower()
+        city = city.lower()
+        filtered_accommodation = [
+            acc for acc in accommodation_list if city in acc["localizacao"].lower()
         ]
 
-        return jsonify(filtered_accommodations)
+        return jsonify(filtered_accommodation)
 
 
-# ● GET /acomodacoes/{id} → Retorna detalhes de uma acomodação específica
 @app.route('/acomodacoes/<int:id>', methods=['GET'])
-def acomodacao_detalhe(id):
-    accommodations = get_accommodation()
-    for accomodation in accommodations:
-        if accomodation.get('id') == id:
-            return jsonify(accomodation)
+def get_accommodation_details(id):
+    accommodation_list = get_accommodation()
+    for accommodation in accommodation_list:
+        if accommodation.get('id') == id:
+            return jsonify(accommodation)
+    return jsonify({"erro": "Acomodação não encontrada", "id":id}), 404
 
 
 app.run(port=5000, host='localhost', debug=True)
