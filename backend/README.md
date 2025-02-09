@@ -46,7 +46,6 @@ A API estará disponível em `http://localhost:5000`.
         "precoNoite": 350,
         "localizacao": "Florianópolis, SC"
     },
-    ...
 ]
 ```
 
