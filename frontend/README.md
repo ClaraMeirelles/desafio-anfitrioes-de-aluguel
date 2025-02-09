@@ -22,7 +22,7 @@ Este é um aplicativo desenvolvido em React para exibição de acomodações dis
    ```bash
    npm install  # ou yarn install
    ```
-4. Para rodar o back-end, siga as instruções disponíveis na documentação: [Link para a documentação do back-end]
+4. Para rodar o back-end, siga as instruções disponíveis na [documentação](https://github.com/ClaraMeirelles/desafio-anfitrioes-de-aluguel/blob/main/backend/README.md).
 
 5. Rode o projeto:
    ```bash
