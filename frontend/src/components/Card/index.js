@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { StyledCard, StyledImg, StyledInfo, StyledTitle } from './styled'
+import { HighlightedText, StyledCard, StyledImg, StyledInfo, StyledTitle } from './styled'
 
 export function Card({ property, changePage }) {
     const [like, setLike] = useState(false)
     const favoriteAccomodation = JSON.parse(window.localStorage.getItem("favoriteAccomodation")) || []
     useEffect(() => {
         favoriteAccomodation.map((accomodationId) => accomodationId === property.id && setLike(true))
-    }, [])
+    }, [property])
 
     useEffect(() => {
-        let filteredFavoriteAccomodation = favoriteAccomodation
+        let updatedFavorites = [...favoriteAccomodation]
         if (like && !favoriteAccomodation.includes(property.id)) {
-            favoriteAccomodation.push(property.id)
+            updatedFavorites.push(property.id)
         } else if (!like && favoriteAccomodation.includes(property.id)) {
-            filteredFavoriteAccomodation = favoriteAccomodation.filter((accomodationId) => accomodationId !== property.id)
+            updatedFavorites = favoriteAccomodation.filter((accomodationId) => accomodationId !== property.id)
         }
-        console.log(favoriteAccomodation)
-        window.localStorage.setItem("favoriteAccomodation", JSON.stringify(filteredFavoriteAccomodation))
-    }, [like])
+        window.localStorage.setItem("favoriteAccomodation", JSON.stringify(updatedFavorites))
+    }, [like, property])
 
 
     return (
@@ -35,7 +34,7 @@ export function Card({ property, changePage }) {
                 </StyledInfo>
             </article>
             <StyledInfo>
-                <p onClick={() => setLike(!like)}><strong>{like ? "Remover dos favoritos" : "Favoritar"}</strong></p>
+                <HighlightedText onClick={() => setLike(!like)}>{like ? "Remover dos favoritos" : "Favoritar"}</HighlightedText>
             </StyledInfo>
         </StyledCard>
     )

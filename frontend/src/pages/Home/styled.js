@@ -5,7 +5,7 @@ export const HomeContainer = styled.main`
     padding: 16px;
 `
 
-export const HomeMenu = styled.section`
+export const HomeControls = styled.section`
     display: flex;
     justify-content: space-evenly;
     @media  screen and (max-width: 700px) {
@@ -13,7 +13,7 @@ export const HomeMenu = styled.section`
         padding-bottom: 32px;
      }
 `
-export const StyledDisplay = styled.section`
+export const HomeLayout = styled.section`
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

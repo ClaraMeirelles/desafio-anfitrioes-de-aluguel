@@ -18,14 +18,15 @@ export const Description = styled.section`
     gap: 16px;
     justify-items: center;
     padding: 16px;
-    p>strong{
-        color: #ff464f;
-        :hover{
-        text-decoration: underline;
-        cursor: pointer;
-        }
-    }
     :last-child{
         grid-column:span 2;
+    }
+`
+export const HighlightedText = styled.a`
+    color: #ff464f;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
     }
 `
