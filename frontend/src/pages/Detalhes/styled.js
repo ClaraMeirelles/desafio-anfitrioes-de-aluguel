@@ -18,14 +18,17 @@ export const Description = styled.section`
     gap: 16px;
     justify-items: center;
     padding: 16px;
-    p>strong{
-        color: #ff464f;
-        :hover{
-        text-decoration: underline;
-        cursor: pointer;
-        }
-    }
     :last-child{
         grid-column:span 2;
+    }
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    @media (max-width: 700px) {
+        grid-template-columns: 3fr 2fr;
+        text-align: center;
     }
 `

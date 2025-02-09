@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { HomeContainer, HomeMenu, StyledDisplay } from './styled';
-import { Card } from '../../components/Card/Card';
-// import axios from "axios";
+import { HomeContainer, HomeControls, HomeLayout } from './styled';
+import { Card } from '../../components/Card';
 
 export default function Home({ changePage }) {
     const [properties, setProperties] = useState([])
     const [cities, setCities] = useState([])
 
-    useEffect(() => {
+    const fetchData = () => {
         fetch("http://localhost:5000/acomodacoes")
             .then((res) => res.json())
             .then((data) => {
@@ -17,8 +16,8 @@ export default function Home({ changePage }) {
                 );
                 setCities(citiesList)
             })
-            .catch((err) => console.error("Erro:", err));
-    }, []);
+            .catch(() => alert("Erro ao buscar as acomodações. Por favor, recarregue a página."));
+    };
 
     const filterAcomodationsByCity = (city) => {
         if (city) {
@@ -27,29 +26,31 @@ export default function Home({ changePage }) {
                 .then((data) => {
                     setProperties(data)
                 })
-                .catch((err) => console.error("Erro:", err));
-        } else {
-            fetch(`http://localhost:5000/acomodacoes`)
-                .then((res) => res.json())
-                .then((data) => {
-                    setProperties(data)
+                .catch(() => {
+                    alert("Erro ao buscar a cidade. Por favor, tente novamente mais tarde.")
+                    fetchData()
                 })
-                .catch((err) => console.error("Erro:", err));
+        } else {
+            fetchData()
         }
     }
 
-    const receivecity = (e) => {
+    const handleCityChange = (e) => {
         e.preventDefault();
         filterAcomodationsByCity(e.target.value)
     }
-    console.log(cities)
+
+    useEffect(() => {
+        fetchData()
+    }, []);
+
     return (
         <HomeContainer>
-            <HomeMenu>
+            <HomeControls>
                 <h1>Acomodações</h1>
                 <section>
                     <p>Filtrar Acomodações:</p>
-                    <select name="city" onChange={receivecity}>
+                    <select name="city" onChange={handleCityChange}>
                         <option value={""}>Selecione a cidade</option>
                         {cities
                             .sort()
@@ -59,11 +60,11 @@ export default function Home({ changePage }) {
                         }
                     </select>
                 </section>
-            </HomeMenu>
-            <StyledDisplay>
+            </HomeControls>
+            <HomeLayout>
 
                 {properties.map((property) => <Card key={property.id} property={property} changePage={changePage} />)}
-            </StyledDisplay>
+            </HomeLayout>
         </HomeContainer >
     )
 }

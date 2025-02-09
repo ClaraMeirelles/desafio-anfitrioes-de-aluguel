@@ -1,35 +1,41 @@
 import React, { useEffect, useState } from 'react'
-import { Description, DetailPage } from "./styled"
+import { Description, DetailPage, HighlightedText } from "./styled"
 export default function Detalhes({ id }) {
     const [like, setLike] = useState(false)
     const [property, setProperty] = useState({})
-    const favoriteAccomodation = JSON.parse(window.localStorage.getItem("favoriteAccomodation"))
+    const [favoriteAccomodation, setFavoriteAccomodation] =
+        useState(JSON.parse(localStorage.getItem("favoriteAccomodation")) || []);
 
-    useEffect(() => {
+    const fetchData = (id) => {
+        if (!id) return
         fetch(`http://localhost:5000/acomodacoes/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setProperty(data)
-                console.log(data)
             })
-            .catch((err) => console.error("Erro:", err));
-    }, []);
+            .catch(() => alert("Erro ao buscar detalhes da acomodação. Por favor, tente novamente mais tarde."));
+    };
+
+    const toggleFavorite = () => {
+        const updatedFavorites = like
+            ? favoriteAccomodation.filter(accomodationId => accomodationId !== id)
+            : [...favoriteAccomodation, id]
+        setFavoriteAccomodation(updatedFavorites)
+        localStorage.setItem("favoriteAccomodation", JSON.stringify(updatedFavorites))
+        setLike(!like);
+    };
 
     useEffect(() => {
-        favoriteAccomodation.map((accomodationId) => accomodationId === id && setLike(true))
-    }, [])
+        fetchData(id)
+    }, [id]);
 
     useEffect(() => {
-        let filteredFavoriteAccomodation = favoriteAccomodation
-        if (like && !favoriteAccomodation.includes(id)) {
-            filteredFavoriteAccomodation.push(property.id)
-        } else if (!like && favoriteAccomodation.includes(property.id)) {
-            filteredFavoriteAccomodation = favoriteAccomodation.filter((accomodationId) => accomodationId !== id)
-        }
-        console.log(favoriteAccomodation)
-        window.localStorage.setItem("favoriteAccomodation", JSON.stringify(filteredFavoriteAccomodation))
-    }, [like])
+        setLike(favoriteAccomodation.includes(id))
+    }, [id])
 
+    if (!property) {
+        return <p>Carregando detalhes...</p>;
+    }
 
     return (
         <DetailPage>
@@ -44,7 +50,7 @@ export default function Detalhes({ id }) {
                 <section>
                     <h3>R$ {property.precoNoite}</h3>
                     <h3>{property.localizacao}</h3>
-                    <p onClick={() => setLike(!like)}><strong>{like ? "Remover dos favoritos" : "Favoritar"}</strong></p>
+                    <button onClick={toggleFavorite}>{like ? "Remover dos favoritos" : "Favoritar"}</button>
                 </section>
                 <p>3 quartos | 2 banheiros | garagem</p>
             </Description>
