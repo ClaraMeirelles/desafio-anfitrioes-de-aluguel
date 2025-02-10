@@ -30,6 +30,38 @@ button{
       border-radius: 4px;
     }
 }
+
+/* Estilo básico para o select */
+select {
+  width: 200px;
+  height: 40px;
+  padding:4px 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20viewBox="0%200%204%205"><polygon%20points="0,0%204,0%202,5"%20fill="%23ccc"/></svg>') no-repeat right 10px center;
+  background-size: 10px;
+}
+
+/* Estilo ao passar o mouse sobre o select */
+select:hover {
+  border-color: #888;
+}
+
+/* Estilo ao focar no select */
+select:focus {
+  outline: none;
+  border-color: #555;
+}
+
+/* Estilo para o placeholder */
+select option[value=""] {
+  color: #888;
+}
 `
 
 /**
