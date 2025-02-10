@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Description, DetailPage, HighlightedText } from "./styled"
+import { Description, DetailPage } from "./styled"
+import { useFetch } from '../../hooks/useFetch'
 export default function Detalhes({ id }) {
     const [like, setLike] = useState(false)
     const [property, setProperty] = useState({})
+    const { data, err } = useFetch(`/acomodacoes/${id}`, {})
     const [favoriteAccomodation, setFavoriteAccomodation] =
         useState(JSON.parse(localStorage.getItem("favoriteAccomodation")) || []);
-
-    const fetchData = (id) => {
-        if (!id) return
-        fetch(`http://localhost:5000/acomodacoes/${id}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setProperty(data)
-            })
-            .catch(() => alert("Erro ao buscar detalhes da acomodação. Por favor, tente novamente mais tarde."));
-    };
-
+    console.log(data)
     const toggleFavorite = () => {
         const updatedFavorites = like
             ? favoriteAccomodation.filter(accomodationId => accomodationId !== id)
@@ -26,16 +18,14 @@ export default function Detalhes({ id }) {
     };
 
     useEffect(() => {
-        fetchData(id)
-    }, [id]);
+        setProperty(data)
+    }, [data, id]);
 
     useEffect(() => {
         setLike(favoriteAccomodation.includes(id))
     }, [id])
 
-    if (!property) {
-        return <p>Carregando detalhes...</p>;
-    }
+    if (err) alert(err.erro, err.id);
 
     return (
         <DetailPage>
