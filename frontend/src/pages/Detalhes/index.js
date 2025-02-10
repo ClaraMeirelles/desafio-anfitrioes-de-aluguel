@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Description, DetailPage, HighlightedText } from "./styled"
+import { Description, DetailPage } from "./styled"
 import { useFetch } from '../../hooks/useFetch'
 export default function Detalhes({ id }) {
     const [like, setLike] = useState(false)
@@ -7,7 +7,7 @@ export default function Detalhes({ id }) {
     const { data, err } = useFetch(`/acomodacoes/${id}`, {})
     const [favoriteAccomodation, setFavoriteAccomodation] =
         useState(JSON.parse(localStorage.getItem("favoriteAccomodation")) || []);
-
+    console.log(data)
     const toggleFavorite = () => {
         const updatedFavorites = like
             ? favoriteAccomodation.filter(accomodationId => accomodationId !== id)

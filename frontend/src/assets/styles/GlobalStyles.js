@@ -31,7 +31,6 @@ button{
     }
 }
 
-/* Estilo básico para o select */
 select {
   width: 200px;
   height: 40px;
@@ -47,28 +46,25 @@ select {
   background-size: 10px;
 }
 
-/* Estilo ao passar o mouse sobre o select */
 select:hover {
   border-color: #888;
 }
 
-/* Estilo ao focar no select */
 select:focus {
   outline: none;
   border-color: #555;
 }
 
-/* Estilo para o placeholder */
 select option[value=""] {
   color: #888;
 }
 `
 
-/**
+/*
  cores do documento
  laranja: #ff8a3b
  vermelho: #ff464f
  amarelo: #ffc232
  preto: #001736
  cinza: #9e9e9e
- *  */ 
+ */ 

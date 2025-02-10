@@ -7,7 +7,6 @@ export const HeaderContainer = styled.header`
     min-height: 50px;
     width: 98vw;
     padding: 8px;
-    margin-bottom: 1em;
 
     @media  screen and (max-width: 700px) {
         min-height: fit-content;
