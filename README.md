@@ -1,5 +1,3 @@
-Claro! Aqui está o README modificado conforme solicitado:
-
 # 🏡 Desafio Anfitriões de Aluguel
 
 Este projeto é uma aplicação full-stack para busca de acomodações, utilizando **React** no frontend e **Flask** no backend.
