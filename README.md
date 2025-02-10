@@ -30,5 +30,5 @@ Isso facilita o gerenciamento e a organização do projeto em um único reposit�
 
 Para mais detalhes sobre a configuração e execução do projeto, consulte as documentações específicas:
 
-- [Documentação do Frontend]([frontend/README.md](https://github.com/ClaraMeirelles/desafio-anfitrioes-de-aluguel/blob/main/frontend/README.md))
+- [Documentação do Frontend]([frontend/README.md](https://github.com/ClaraMeirelles/desafio-anfitrioes-de-aluguel/blob/main/frontend/README.md)
 - [Documentação do Backend](https://github.com/ClaraMeirelles/desafio-anfitrioes-de-aluguel/blob/main/backend/README.md)
