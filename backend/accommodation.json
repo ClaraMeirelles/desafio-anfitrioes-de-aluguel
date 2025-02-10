@@ -3,7 +3,7 @@
         "id": 1,
         "nome": "Apartamento Beira-Mar",
         "imagem": "https://picsum.photos/300/200",
-        "precoNoite": 350,
+        "precoNoite": 550,
         "localizacao": "Florianópolis, SC"
     },
     {
